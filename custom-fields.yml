@@ -1,11 +1,12 @@
 - keyname: message
-  field_type: long_text
+  field_type: string
   name: "Sign Message"
   description: "The main text to display on your sign"
   placeholder: "Hello, World!"
+  rows: 3
 
 - keyname: subtitle
-  field_type: text
+  field_type: string
   name: "Subtitle"
   description: "Optional secondary line (e.g. '- The Management')"
   optional: true
