@@ -1,0 +1,65 @@
+- key: message
+  type: long_text
+  label: "Sign Message (required)"
+  required: true
+
+- key: subtitle
+  type: text
+  label: "Subtitle (optional, e.g. '- The Management')"
+  required: false
+
+- key: font_style
+  type: select
+  label: "Font Style"
+  required: false
+  options:
+    - label: "Classic"
+      value: "classic"
+    - label: "Bold"
+      value: "bold"
+    - label: "Compact"
+      value: "compact"
+    - label: "Marquee"
+      value: "marquee"
+
+- key: border_style
+  type: select
+  label: "Border Style"
+  required: false
+  options:
+    - label: "None"
+      value: "none"
+    - label: "Simple"
+      value: "simple"
+    - label: "Double"
+      value: "double"
+    - label: "Dashed"
+      value: "dashed"
+    - label: "Thick"
+      value: "thick"
+
+- key: text_align
+  type: select
+  label: "Text Alignment"
+  required: false
+  options:
+    - label: "Center"
+      value: "center"
+    - label: "Left"
+      value: "left"
+    - label: "Right"
+      value: "right"
+
+- key: sign_theme
+  type: select
+  label: "Sign Theme"
+  required: false
+  options:
+    - label: "Standard"
+      value: "standard"
+    - label: "Notice Board"
+      value: "notice_board"
+    - label: "Minimalist"
+      value: "minimalist"
+    - label: "Retro"
+      value: "retro"

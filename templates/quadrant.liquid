@@ -1,0 +1,60 @@
+{% render 'shared' %}
+
+{% assign message = trmnl.plugin_settings.custom_fields_values.message | default: "" %}
+{% assign subtitle = trmnl.plugin_settings.custom_fields_values.subtitle | default: "" %}
+{% assign font_style = trmnl.plugin_settings.custom_fields_values.font_style | default: "classic" %}
+{% assign border_style = trmnl.plugin_settings.custom_fields_values.border_style | default: "none" %}
+{% assign text_align = trmnl.plugin_settings.custom_fields_values.text_align | default: "center" %}
+{% assign sign_theme = trmnl.plugin_settings.custom_fields_values.sign_theme | default: "standard" %}
+
+<div class="view view--quadrant">
+  <div class="layout--quadrant font--{{ font_style }}">
+
+    {% if sign_theme == "retro" %}
+      <div class="fun-sign border--{{ border_style }} theme--retro align--{{ text_align }}">
+        <div class="fun-sign__inner">
+          <div class="fun-sign__inner-inner">
+            {% if message != "" %}
+              <div class="fun-sign__message">{{ message }}</div>
+              {% if subtitle != "" %}
+                <div class="fun-sign__subtitle">{{ subtitle }}</div>
+              {% endif %}
+            {% else %}
+              <div class="fun-sign__message fun-sign__empty">Set up in settings</div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+    {% elsif sign_theme == "notice_board" %}
+      <div class="fun-sign border--{{ border_style }} theme--notice_board align--{{ text_align }}">
+        <div class="fun-sign__header">Notice</div>
+        <div class="fun-sign__content">
+          {% if message != "" %}
+            <div class="fun-sign__message">{{ message }}</div>
+            {% if subtitle != "" %}
+              <div class="fun-sign__subtitle">{{ subtitle }}</div>
+            {% endif %}
+          {% else %}
+            <div class="fun-sign__message fun-sign__empty">Set up in settings</div>
+          {% endif %}
+        </div>
+      </div>
+
+    {% else %}
+      <div class="fun-sign border--{{ border_style }} theme--{{ sign_theme }} align--{{ text_align }}">
+        <div class="fun-sign__content">
+          {% if message != "" %}
+            <div class="fun-sign__message">{{ message }}</div>
+            {% if subtitle != "" %}
+              <div class="fun-sign__subtitle">{{ subtitle }}</div>
+            {% endif %}
+          {% else %}
+            <div class="fun-sign__message fun-sign__empty">Set up in settings</div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+</div>
