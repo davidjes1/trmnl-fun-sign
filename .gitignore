@@ -1,0 +1,39 @@
+# TRMNL development
+.trmnlp/
+*.png
+*.bmp
+
+# Environment and secrets
+.env
+.env.*
+!.env.template
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Ruby (trmnlp)
+*.gem
+.bundle/
+vendor/bundle/
+Gemfile.lock
+
+# Docker
+docker-compose.override.yml
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/

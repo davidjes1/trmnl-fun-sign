@@ -1,0 +1,8 @@
+strategy: static
+polling_url:
+refresh_frequency: 60
+layouts:
+  - full
+  - half_horizontal
+  - half_vertical
+  - quadrant

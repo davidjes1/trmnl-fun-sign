@@ -1,0 +1,12 @@
+watch:
+  - "templates/**/*.liquid"
+  - "settings.yml"
+  - "custom-fields.yml"
+
+custom_fields:
+  message: "Hello, World!"
+  subtitle: "- Your TRMNL"
+  font_style: "classic"
+  border_style: "simple"
+  text_align: "center"
+  sign_theme: "standard"
