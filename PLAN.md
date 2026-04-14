@@ -90,10 +90,14 @@ this plugin uses the `static` strategy. No polling URL or webhook server is need
 - [x] Local dev server configuration (.trmnlp.yml)
 
 ### Phase 2 - Polish
-- [ ] Test across all layout sizes and orientations
-- [ ] Refine typography and spacing for e-ink readability
+- [x] Refine typography and spacing for e-ink readability
+- [x] Replace CSS opacity with solid colors for e-ink compatibility
+- [x] Add portrait orientation responsive overrides
+- [x] Add date stamp feature (optional, user-selectable)
+- [x] Add QR code feature (optional URL renders scannable QR)
+- [x] Create plugin icon (SVG) for assets/icon/
+- [x] Improve layout-specific sizing for quadrant and half layouts
 - [ ] Add demo screenshots to assets/demo/
-- [ ] Create plugin icon for assets/icon/
 
 ### Phase 3 - Publish
 - [ ] Submit to TRMNL plugin marketplace or publish as a Recipe
@@ -101,8 +105,8 @@ this plugin uses the `static` strategy. No polling URL or webhook server is need
 - [ ] Gather community feedback
 
 ## Future Feature Ideas
-- Date/time stamp option on the sign
-- QR code integration (link visitors to a URL)
 - Rotating messages (multiple messages cycling)
 - Emoji/icon support (where e-ink rendering allows)
 - Seasonal/holiday border themes
+- Custom header text for Notice Board theme (currently hardcoded to "Notice")
+- Dark mode / inverted color option

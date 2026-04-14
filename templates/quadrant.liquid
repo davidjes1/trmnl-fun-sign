@@ -6,18 +6,25 @@
 {% assign border_style = trmnl.plugin_settings.custom_fields_values.border_style | default: "none" %}
 {% assign text_align = trmnl.plugin_settings.custom_fields_values.text_align | default: "center" %}
 {% assign sign_theme = trmnl.plugin_settings.custom_fields_values.sign_theme | default: "standard" %}
+{% assign show_date = trmnl.plugin_settings.custom_fields_values.show_date | default: "no" %}
+{% assign qr_url = trmnl.plugin_settings.custom_fields_values.qr_url | default: "" %}
 
 <div class="view view--quadrant">
   <div class="layout--quadrant font--{{ font_style }}">
-
     {% if sign_theme == "retro" %}
       <div class="fun-sign border--{{ border_style }} theme--retro align--{{ text_align }}">
-        <div class="fun-sign__inner">
-          <div class="fun-sign__inner-inner">
+        <div class="fun-sign__frame">
+          <div class="fun-sign__frame-inner">
             {% if message != "" %}
               <div class="fun-sign__message">{{ message }}</div>
               {% if subtitle != "" %}
                 <div class="fun-sign__subtitle">{{ subtitle }}</div>
+              {% endif %}
+              {% if show_date == "yes" %}
+                <div class="fun-sign__datestamp">
+                  {% assign now = trmnl.system.timestamp_utc | plus: trmnl.user.utc_offset %}
+                  {{ now | date: "%b %-d" }}
+                </div>
               {% endif %}
             {% else %}
               <div class="fun-sign__message fun-sign__empty">Set up in settings</div>
@@ -35,6 +42,12 @@
             {% if subtitle != "" %}
               <div class="fun-sign__subtitle">{{ subtitle }}</div>
             {% endif %}
+            {% if show_date == "yes" %}
+              <div class="fun-sign__datestamp">
+                {% assign now = trmnl.system.timestamp_utc | plus: trmnl.user.utc_offset %}
+                {{ now | date: "%b %-d" }}
+              </div>
+            {% endif %}
           {% else %}
             <div class="fun-sign__message fun-sign__empty">Set up in settings</div>
           {% endif %}
@@ -49,12 +62,17 @@
             {% if subtitle != "" %}
               <div class="fun-sign__subtitle">{{ subtitle }}</div>
             {% endif %}
+            {% if show_date == "yes" %}
+              <div class="fun-sign__datestamp">
+                {% assign now = trmnl.system.timestamp_utc | plus: trmnl.user.utc_offset %}
+                {{ now | date: "%b %-d" }}
+              </div>
+            {% endif %}
           {% else %}
             <div class="fun-sign__message fun-sign__empty">Set up in settings</div>
           {% endif %}
         </div>
       </div>
     {% endif %}
-
   </div>
 </div>

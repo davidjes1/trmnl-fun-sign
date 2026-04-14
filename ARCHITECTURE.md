@@ -76,8 +76,9 @@ custom-fields.yml          Liquid Templates            E-Ink Bitmap
 │ border_style  │      │  {% if/case logic %} │      │              │
 │ text_align    │      │                     │      │              │
 │ sign_theme    │      │  + shared.liquid     │      │              │
-└──────────────┘      │    (CSS styles)      │      └──────────────┘
-                      └─────────────────────┘
+│ show_date     │      │    (CSS styles)      │      │              │
+│ qr_url        │      │  + <qr> element      │      │              │
+└──────────────┘      └─────────────────────┘      └──────────────┘
 ```
 
 ### Shared Component (shared.liquid)
@@ -130,12 +131,42 @@ Each layout template:
   type: select
   label: "Sign Theme"
   options: [Standard, Notice Board, Minimalist, Retro]
+
+- key: show_date
+  type: select
+  label: "Show Date on Sign"
+  options: [No, Yes]
+
+- key: qr_url
+  type: url
+  label: "QR Code URL"
+  required: false
 ```
+
+## Optional Features
+
+### Date Stamp
+When `show_date` is set to "yes", the sign displays the current date below the
+message. The date is computed from TRMNL system variables:
+```liquid
+{% assign now = trmnl.system.timestamp_utc | plus: trmnl.user.utc_offset %}
+{{ now | date: "%B %-d, %Y" }}
+```
+Smaller layouts use abbreviated month format (`%b`) to save space.
+
+### QR Code
+When `qr_url` is provided, a scannable QR code renders on the sign using TRMNL's
+native `<qr>` element:
+```html
+<qr data-url="{{ qr_url }}"></qr>
+```
+On larger layouts (full, half), the QR code sits in a footer row beside the
+subtitle/date. On the quadrant layout, the QR code is omitted to preserve space.
 
 ## Rendering Constraints
 
 ### E-Ink Display Considerations
-- **No color** - Design uses black, white, and dithered grays only
+- **No color** - Design uses black, white, and solid grays only (no CSS opacity)
 - **No animation** - Static content only; transitions are not visible
 - **Refresh rate** - Screen updates on TRMNL's configurable schedule
 - **Resolution** - Target 800x480 pixels (actual varies by device model)

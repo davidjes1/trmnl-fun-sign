@@ -10,3 +10,5 @@ custom_fields:
   border_style: "simple"
   text_align: "center"
   sign_theme: "standard"
+  show_date: "yes"
+  qr_url: ""

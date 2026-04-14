@@ -18,7 +18,7 @@
     justify-content: center;
     flex: 1;
     width: 100%;
-    padding: 8px;
+    padding: 12px;
     box-sizing: border-box;
   }
 
@@ -29,19 +29,58 @@
   }
 
   .fun-sign__subtitle {
+    margin-top: 10px;
+    color: #555;
+  }
+
+  .fun-sign__datestamp {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #888;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .fun-sign__qr {
     margin-top: 12px;
-    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .fun-sign__qr-label {
+    font-size: 11px;
+    color: #888;
   }
 
   .fun-sign__empty {
-    opacity: 0.5;
+    color: #999;
     font-style: italic;
+  }
+
+  .fun-sign__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .fun-sign__footer-text {
+    flex: 1;
+    min-width: 0;
   }
 
   /* --- Text Alignment --- */
   .align--center { text-align: center; }
+  .align--center .fun-sign__footer { justify-content: center; }
+  .align--center .fun-sign__qr { justify-content: center; }
   .align--left { text-align: left; }
   .align--right { text-align: right; }
+  .align--right .fun-sign__footer { justify-content: flex-end; }
+  .align--right .fun-sign__qr { justify-content: flex-end; }
 
   /* --- Font Styles --- */
   .font--classic .fun-sign__message {
@@ -55,7 +94,7 @@
 
   .font--bold .fun-sign__message {
     font-size: 52px;
-    line-height: 1.2;
+    line-height: 1.15;
     font-weight: 900;
     letter-spacing: -1px;
   }
@@ -66,7 +105,7 @@
 
   .font--compact .fun-sign__message {
     font-size: 22px;
-    line-height: 1.4;
+    line-height: 1.5;
     font-weight: 400;
   }
   .font--compact .fun-sign__subtitle {
@@ -75,7 +114,7 @@
 
   .font--marquee .fun-sign__message {
     font-size: 44px;
-    line-height: 1.2;
+    line-height: 1.15;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -87,31 +126,17 @@
   }
 
   /* --- Border Styles --- */
-  .border--none {
-    border: none;
-  }
-
-  .border--simple {
-    border: 2px solid #000;
-  }
-
-  .border--double {
-    border: 6px double #000;
-  }
-
-  .border--dashed {
-    border: 2px dashed #000;
-  }
-
-  .border--thick {
-    border: 5px solid #000;
-  }
+  .border--none { border: none; }
+  .border--simple { border: 2px solid #000; }
+  .border--double { border: 6px double #000; }
+  .border--dashed { border: 3px dashed #000; }
+  .border--thick { border: 5px solid #000; }
 
   /* --- Sign Themes --- */
 
   /* Standard: clean, straightforward */
   .theme--standard {
-    padding: 16px;
+    padding: 20px;
   }
 
   /* Notice Board: header bar at top */
@@ -133,59 +158,86 @@
     box-sizing: border-box;
   }
   .theme--notice_board .fun-sign__content {
-    padding: 16px;
+    padding: 20px;
   }
 
-  /* Minimalist: lots of whitespace */
+  /* Minimalist: lots of whitespace, thin weight */
   .theme--minimalist {
-    padding: 32px;
+    padding: 40px;
   }
   .theme--minimalist .fun-sign__message {
     font-weight: 300;
   }
   .theme--minimalist .fun-sign__subtitle {
-    opacity: 0.4;
+    color: #aaa;
   }
 
-  /* Retro: decorative double border with inner padding */
+  /* Retro: decorative nested border frame */
   .theme--retro {
-    padding: 8px;
+    padding: 10px;
   }
-  .theme--retro .fun-sign__inner {
+  .theme--retro .fun-sign__frame {
     border: 3px solid #000;
-    padding: 4px;
+    padding: 5px;
     height: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
   }
-  .theme--retro .fun-sign__inner-inner {
+  .theme--retro .fun-sign__frame-inner {
     border: 1px solid #000;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 12px;
+    padding: 16px;
     box-sizing: border-box;
   }
 
-  /* --- Layout-specific size overrides --- */
+  /* --- Layout-specific size scaling --- */
+
+  /* Half Horizontal (780x225): shorter, reduce font sizes */
   .layout--half_horizontal .font--classic .fun-sign__message { font-size: 28px; }
-  .layout--half_horizontal .font--bold .fun-sign__message { font-size: 38px; }
+  .layout--half_horizontal .font--bold .fun-sign__message { font-size: 36px; }
   .layout--half_horizontal .font--compact .fun-sign__message { font-size: 18px; }
-  .layout--half_horizontal .font--marquee .fun-sign__message { font-size: 32px; }
+  .layout--half_horizontal .font--marquee .fun-sign__message { font-size: 30px; letter-spacing: 3px; }
   .layout--half_horizontal .fun-sign__subtitle { font-size: 14px; }
+  .layout--half_horizontal .theme--minimalist { padding: 24px; }
+  .layout--half_horizontal .theme--notice_board .fun-sign__header { font-size: 12px; padding: 6px 12px; }
 
+  /* Half Vertical (400x460): narrower, reduce font sizes */
   .layout--half_vertical .font--classic .fun-sign__message { font-size: 28px; }
-  .layout--half_vertical .font--bold .fun-sign__message { font-size: 36px; }
+  .layout--half_vertical .font--bold .fun-sign__message { font-size: 34px; }
   .layout--half_vertical .font--compact .fun-sign__message { font-size: 18px; }
-  .layout--half_vertical .font--marquee .fun-sign__message { font-size: 32px; }
+  .layout--half_vertical .font--marquee .fun-sign__message { font-size: 28px; letter-spacing: 2px; }
+  .layout--half_vertical .fun-sign__subtitle { font-size: 15px; }
+  .layout--half_vertical .theme--minimalist { padding: 28px; }
 
-  .layout--quadrant .font--classic .fun-sign__message { font-size: 22px; }
-  .layout--quadrant .font--bold .fun-sign__message { font-size: 28px; }
-  .layout--quadrant .font--compact .fun-sign__message { font-size: 16px; }
-  .layout--quadrant .font--marquee .fun-sign__message { font-size: 24px; letter-spacing: 2px; }
+  /* Quadrant (400x235): smallest, compact everything */
+  .layout--quadrant .font--classic .fun-sign__message { font-size: 20px; }
+  .layout--quadrant .font--bold .fun-sign__message { font-size: 26px; }
+  .layout--quadrant .font--compact .fun-sign__message { font-size: 15px; }
+  .layout--quadrant .font--marquee .fun-sign__message { font-size: 22px; letter-spacing: 2px; }
   .layout--quadrant .fun-sign__subtitle { font-size: 12px; }
+  .layout--quadrant .fun-sign__datestamp { font-size: 10px; }
+  .layout--quadrant .theme--standard { padding: 12px; }
   .layout--quadrant .theme--minimalist { padding: 16px; }
-  .layout--quadrant .theme--notice_board .fun-sign__header { font-size: 11px; padding: 4px 8px; }
+  .layout--quadrant .theme--notice_board .fun-sign__header { font-size: 10px; padding: 4px 8px; }
+  .layout--quadrant .theme--retro { padding: 6px; }
+  .layout--quadrant .theme--retro .fun-sign__frame { padding: 3px; }
+  .layout--quadrant .theme--retro .fun-sign__frame-inner { padding: 8px; }
+
+  /* --- Portrait orientation overrides --- */
+  @media (orientation: portrait) {
+    .font--classic .fun-sign__message { font-size: 30px; }
+    .font--bold .fun-sign__message { font-size: 42px; }
+    .font--marquee .fun-sign__message { font-size: 34px; letter-spacing: 3px; }
+    .theme--minimalist { padding: 28px; }
+  }
 </style>
+
+{% comment %}
+  Reusable sign body macro. Each layout template sets variables then renders this.
+  Expected variables: message, subtitle, font_style, border_style, text_align,
+                      sign_theme, show_date, qr_url, layout_name
+{% endcomment %}

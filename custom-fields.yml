@@ -63,3 +63,18 @@
       value: "minimalist"
     - label: "Retro"
       value: "retro"
+
+- key: show_date
+  type: select
+  label: "Show Date on Sign"
+  required: false
+  options:
+    - label: "No"
+      value: "no"
+    - label: "Yes"
+      value: "yes"
+
+- key: qr_url
+  type: url
+  label: "QR Code URL (optional, displays a scannable QR code on your sign)"
+  required: false
