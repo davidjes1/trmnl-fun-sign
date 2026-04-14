@@ -194,45 +194,41 @@
     box-sizing: border-box;
   }
 
-  /* --- Layout-specific size scaling --- */
+  /* --- Responsive size scaling --- */
 
-  /* Half Horizontal (780x225): shorter, reduce font sizes */
-  .layout--half_horizontal .font--classic .fun-sign__message { font-size: 28px; }
-  .layout--half_horizontal .font--bold .fun-sign__message { font-size: 36px; }
-  .layout--half_horizontal .font--compact .fun-sign__message { font-size: 18px; }
-  .layout--half_horizontal .font--marquee .fun-sign__message { font-size: 30px; letter-spacing: 3px; }
-  .layout--half_horizontal .fun-sign__subtitle { font-size: 14px; }
-  .layout--half_horizontal .theme--minimalist { padding: 24px; }
-  .layout--half_horizontal .theme--notice_board .fun-sign__header { font-size: 12px; padding: 6px 12px; }
+  /* Smaller views (half layouts, quadrant): reduce font sizes */
+  @media (max-width: 500px) {
+    .font--classic .fun-sign__message { font-size: 22px; }
+    .font--bold .fun-sign__message { font-size: 28px; }
+    .font--compact .fun-sign__message { font-size: 16px; }
+    .font--marquee .fun-sign__message { font-size: 24px; letter-spacing: 2px; }
+    .fun-sign__subtitle { font-size: 13px; }
+    .fun-sign__datestamp { font-size: 10px; }
+    .theme--standard { padding: 12px; }
+    .theme--minimalist { padding: 16px; }
+    .theme--notice_board .fun-sign__header { font-size: 10px; padding: 4px 8px; }
+    .theme--retro { padding: 6px; }
+    .theme--retro .fun-sign__frame { padding: 3px; }
+    .theme--retro .fun-sign__frame-inner { padding: 10px; }
+  }
 
-  /* Half Vertical (400x460): narrower, reduce font sizes */
-  .layout--half_vertical .font--classic .fun-sign__message { font-size: 28px; }
-  .layout--half_vertical .font--bold .fun-sign__message { font-size: 34px; }
-  .layout--half_vertical .font--compact .fun-sign__message { font-size: 18px; }
-  .layout--half_vertical .font--marquee .fun-sign__message { font-size: 28px; letter-spacing: 2px; }
-  .layout--half_vertical .fun-sign__subtitle { font-size: 15px; }
-  .layout--half_vertical .theme--minimalist { padding: 28px; }
+  /* Medium views (half layouts): slightly larger than quadrant */
+  @media (min-width: 501px) and (max-width: 700px) {
+    .font--classic .fun-sign__message { font-size: 28px; }
+    .font--bold .fun-sign__message { font-size: 34px; }
+    .font--compact .fun-sign__message { font-size: 18px; }
+    .font--marquee .fun-sign__message { font-size: 30px; letter-spacing: 3px; }
+    .fun-sign__subtitle { font-size: 15px; }
+    .theme--minimalist { padding: 24px; }
+    .theme--notice_board .fun-sign__header { font-size: 12px; padding: 6px 12px; }
+  }
 
-  /* Quadrant (400x235): smallest, compact everything */
-  .layout--quadrant .font--classic .fun-sign__message { font-size: 20px; }
-  .layout--quadrant .font--bold .fun-sign__message { font-size: 26px; }
-  .layout--quadrant .font--compact .fun-sign__message { font-size: 15px; }
-  .layout--quadrant .font--marquee .fun-sign__message { font-size: 22px; letter-spacing: 2px; }
-  .layout--quadrant .fun-sign__subtitle { font-size: 12px; }
-  .layout--quadrant .fun-sign__datestamp { font-size: 10px; }
-  .layout--quadrant .theme--standard { padding: 12px; }
-  .layout--quadrant .theme--minimalist { padding: 16px; }
-  .layout--quadrant .theme--notice_board .fun-sign__header { font-size: 10px; padding: 4px 8px; }
-  .layout--quadrant .theme--retro { padding: 6px; }
-  .layout--quadrant .theme--retro .fun-sign__frame { padding: 3px; }
-  .layout--quadrant .theme--retro .fun-sign__frame-inner { padding: 8px; }
-
-  /* --- Portrait orientation overrides --- */
-  @media (orientation: portrait) {
-    .font--classic .fun-sign__message { font-size: 30px; }
-    .font--bold .fun-sign__message { font-size: 42px; }
-    .font--marquee .fun-sign__message { font-size: 34px; letter-spacing: 3px; }
-    .theme--minimalist { padding: 28px; }
+  /* Short views (half horizontal): reduce vertical spacing */
+  @media (max-height: 260px) {
+    .theme--standard { padding: 10px; }
+    .theme--notice_board .fun-sign__content { padding: 10px; }
+    .fun-sign__subtitle { margin-top: 6px; }
+    .fun-sign__datestamp { margin-top: 4px; }
   }
 </style>
 

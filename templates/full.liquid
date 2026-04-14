@@ -7,8 +7,7 @@
 {% assign show_date = trmnl.plugin_settings.custom_fields_values.show_date | default: "no" %}
 {% assign qr_url = trmnl.plugin_settings.custom_fields_values.qr_url | default: "" %}
 
-<div class="view view--full">
-  <div class="layout--full font--{{ font_style }}">
+<div class="layout font--{{ font_style }}">
     {% if sign_theme == "retro" %}
       <div class="fun-sign border--{{ border_style }} theme--retro align--{{ text_align }}">
         <div class="fun-sign__frame">
@@ -117,5 +116,4 @@
         </div>
       </div>
     {% endif %}
-  </div>
 </div>
