@@ -11,7 +11,10 @@ Type your message in the plugin portal, pick a style, and watch it appear on you
 - **Sign themes** - Standard, Notice Board, Minimalist, or Retro looks
 - **Text alignment** - Center, Left, or Right
 - **Optional subtitle** - Add an attribution or secondary line
+- **Date stamp** - Optionally show the current date on your sign
+- **QR code** - Add a scannable QR code linking to any URL
 - **All layouts** - Full, Half Horizontal, Half Vertical, and Quadrant
+- **Portrait support** - Responsive font scaling for portrait orientation
 
 ## How It Works
 
@@ -57,6 +60,8 @@ Open `http://localhost:4567` to preview your plugin in the browser.
 | Border Style | Select | None, Simple, Double, Dashed, or Thick |
 | Text Alignment | Select | Center, Left, or Right |
 | Sign Theme | Select | Standard, Notice Board, Minimalist, or Retro |
+| Show Date | Select | Display the current date on the sign (Yes/No) |
+| QR Code URL | URL | Optional URL to render as a scannable QR code |
 
 ## Layouts
 
