@@ -1,80 +1,65 @@
-- key: message
-  type: long_text
-  label: "Sign Message (required)"
-  required: true
+- keyname: message
+  field_type: long_text
+  name: "Sign Message"
+  description: "The main text to display on your sign"
+  placeholder: "Hello, World!"
 
-- key: subtitle
-  type: text
-  label: "Subtitle (optional, e.g. '- The Management')"
-  required: false
+- keyname: subtitle
+  field_type: text
+  name: "Subtitle"
+  description: "Optional secondary line (e.g. '- The Management')"
+  optional: true
 
-- key: font_style
-  type: select
-  label: "Font Style"
-  required: false
+- keyname: font_style
+  field_type: select
+  name: "Font Style"
+  default: classic
   options:
-    - label: "Classic"
-      value: "classic"
-    - label: "Bold"
-      value: "bold"
-    - label: "Compact"
-      value: "compact"
-    - label: "Marquee"
-      value: "marquee"
+    - classic
+    - bold
+    - compact
+    - marquee
 
-- key: border_style
-  type: select
-  label: "Border Style"
-  required: false
+- keyname: border_style
+  field_type: select
+  name: "Border Style"
+  default: none
   options:
-    - label: "None"
-      value: "none"
-    - label: "Simple"
-      value: "simple"
-    - label: "Double"
-      value: "double"
-    - label: "Dashed"
-      value: "dashed"
-    - label: "Thick"
-      value: "thick"
+    - none
+    - simple
+    - double
+    - dashed
+    - thick
 
-- key: text_align
-  type: select
-  label: "Text Alignment"
-  required: false
+- keyname: text_align
+  field_type: select
+  name: "Text Alignment"
+  default: center
   options:
-    - label: "Center"
-      value: "center"
-    - label: "Left"
-      value: "left"
-    - label: "Right"
-      value: "right"
+    - center
+    - left
+    - right
 
-- key: sign_theme
-  type: select
-  label: "Sign Theme"
-  required: false
+- keyname: sign_theme
+  field_type: select
+  name: "Sign Theme"
+  default: standard
   options:
-    - label: "Standard"
-      value: "standard"
-    - label: "Notice Board"
-      value: "notice_board"
-    - label: "Minimalist"
-      value: "minimalist"
-    - label: "Retro"
-      value: "retro"
+    - standard
+    - notice_board
+    - minimalist
+    - retro
 
-- key: show_date
-  type: select
-  label: "Show Date on Sign"
-  required: false
+- keyname: show_date
+  field_type: select
+  name: "Show Date on Sign"
+  default: "no"
   options:
-    - label: "No"
-      value: "no"
-    - label: "Yes"
-      value: "yes"
+    - "no"
+    - "yes"
 
-- key: qr_url
-  type: url
-  label: "QR Code URL (optional, displays a scannable QR code on your sign)"
-  required: false
+- keyname: qr_url
+  field_type: url
+  name: "QR Code URL"
+  description: "Optional URL to display as a scannable QR code on your sign"
+  optional: true
